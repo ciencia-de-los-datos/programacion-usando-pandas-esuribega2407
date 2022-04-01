@@ -22,7 +22,8 @@ def pregunta_01():
     40
 
     """
-    return
+    number_rows = len(tbl0)
+    return number_rows
 
 
 def pregunta_02():
