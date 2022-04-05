@@ -188,6 +188,7 @@ def pregunta_10():
     data = tbl0.sort_values(['_c1', '_c2'], ascending=True)
     result = data.groupby(['_c1'])['_c2'].apply(':'.join)
     result = result.reset_index()
+    result.columns = ["_c0", "_c1"]
 
     return result
 
@@ -209,7 +210,6 @@ def pregunta_11():
     39   39    a,d,f
     """
 
-    tbl1['_c0'] = tbl1['_c0'].apply(int)
     data = tbl1.sort_values(['_c0', '_c4'], ascending=True)
     result = data.groupby(['_c0'])['_c4'].apply(','.join)
     result = result.reset_index()
@@ -232,13 +232,15 @@ def pregunta_12():
     38   38                    eee:0,fff:9,iii:2
     39   39                    ggg:3,hhh:8,jjj:5
     """
-    tbl2['_c0'] = tbl2['_c0'].apply(int)
+
     tbl2["Union"] = tbl2["_c5a"] + ":" + tbl2["_c5b"].astype(str)
     data = tbl2.sort_values(['_c0', 'Union'], ascending=True)
     result = data.groupby(['_c0'])['Union'].apply(','.join)
     result = result.reset_index()
+    result.columns = ["_c0", "_c5"]
 
     return result
+
 
 def pregunta_13():
     """
@@ -257,6 +259,5 @@ def pregunta_13():
 
     data = tbl0.merge(tbl2, left_on='_c0', right_on='_c0', how="outer")
     result = data.groupby("_c1").sum()["_c5b"]
-    result = result.reset_index()
-
+   
     return result
