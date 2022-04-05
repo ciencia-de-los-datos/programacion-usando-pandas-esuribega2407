@@ -107,7 +107,7 @@ def pregunta_06():
 
     result = [row for row in result]
 
-    return
+    return result
 
 
 def pregunta_07():
@@ -259,4 +259,4 @@ def pregunta_13():
     result = data.groupby("_c1").sum()["_c5b"]
     result = result.reset_index()
 
-    return
+    return result
