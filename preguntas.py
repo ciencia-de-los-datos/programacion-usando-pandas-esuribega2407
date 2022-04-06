@@ -184,7 +184,7 @@ def pregunta_10():
     4   E  1:1:2:3:3:4:5:5:5:6:7:8:8:9
     """
 
-    tbl0['_c2'] = tbl0['_c2'].apply(str)
+    tbl0['_c2'] = tbl0['_c2'].apply(int)
     data = tbl0.sort_values(['_c1', '_c2'], ascending=True)
     result = data.groupby(['_c1'])['_c2'].apply(':'.join)
     result = result.reset_index()
