@@ -188,7 +188,7 @@ def pregunta_10():
     data = tbl0.sort_values(['_c1', '_c2'], ascending=True)
     result = data.groupby(['_c1'])['_c2'].apply(':'.join)
     result = result.reset_index()
-    result.columns = ["_c0", "_c1"]
+    result.columns = ["_c0", "_c2"]
 
     return result
 
